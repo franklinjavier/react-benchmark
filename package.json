@@ -1,0 +1,29 @@
+{
+  "name": "react-benchmark",
+  "version": "1.0.0",
+  "description": "React framework performance benchmark",
+  "main": "index.js",
+  "scripts": {
+    "build:cra": "cd create-react-app && npm run build && serve -l 3010 -s build",
+    "build:nextjs": "cd nextjs && npm run build &&  serve -l 3011 -s out",
+    "lighthouse:cra": "lighthouse http://localhost:3010 --view --verbose",
+    "lighthouse:nextjs": "lighthouse http://localhost:3011 --view --verbose",
+    "start": "npm-run-all -p build:*",
+    "bench": "npm-run-all -s lighthouse:*",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/franklinjavier/react-benchmark.git"
+  },
+  "author": "franklinjavier",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/franklinjavier/react-benchmark/issues"
+  },
+  "homepage": "https://github.com/franklinjavier/react-benchmark#readme",
+  "dependencies": {
+    "lighthouse": "^7.2.0",
+    "npm-run-all": "^4.1.5"
+  }
+}
