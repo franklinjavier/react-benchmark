@@ -5,9 +5,11 @@
   "main": "index.js",
   "scripts": {
     "build:cra": "cd create-react-app && npm run build && serve -l 3010 -s build",
-    "build:nextjs": "cd nextjs && npm run build &&  serve -l 3011 -s out",
-    "lighthouse:cra": "lighthouse http://localhost:3010 --view --verbose",
-    "lighthouse:nextjs": "lighthouse http://localhost:3011 --view --verbose",
+    "build:nextjs": "cd nextjs && npm run build && serve -l 3011 -s out",
+    "build:vitejs": "cd vitejs && npm run build && serve -l 3012 -s dist",
+    "lighthouse:cra": "lighthouse http://localhost:3010 --view --quiet --output-path=./lighthouse-cra.html",
+    "lighthouse:nextjs": "lighthouse http://localhost:3011 --view --quiet --output-path=./lighthouse-nextjs.html",
+    "lighthouse:vitejs": "lighthouse http://localhost:3012 --view --quiet --output-path=./lighthouse-vitejs.html",
     "start": "npm-run-all -p build:*",
     "bench": "npm-run-all -s lighthouse:*",
     "test": "echo \"Error: no test specified\" && exit 1"
